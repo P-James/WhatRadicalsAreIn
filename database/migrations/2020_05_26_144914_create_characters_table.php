@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRadicalsTable extends Migration
+class CreateCharactersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,8 @@ class CreateRadicalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('radicals', function (Blueprint $table) {
+        Schema::create('characters', function (Blueprint $table) {
             $table->id();
-            $table->unsignedInteger('radical_number');
-            $table->text('radical');
-            $table->text('english');
-            $table->text('pinyin');
-            $table->text('stroke_count');
-            $table->text('variants');
-            $table->string('uri');
             $table->timestamps();
         });
     }
@@ -33,6 +26,6 @@ class CreateRadicalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('radicals');
+        Schema::dropIfExists('characters');
     }
 }
