@@ -21,7 +21,7 @@ class CreateRadicalsTable extends Migration
             $table->text('pinyin');
             $table->text('stroke_count');
             $table->text('variants');
-            $table->string('uri');
+            $table->string('uri')->nullable();
             $table->timestamps();
         });
     }

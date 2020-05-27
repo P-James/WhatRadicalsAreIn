@@ -1,5 +1,6 @@
 <?php
 
+use App\Radical;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Radical::all();
 });
 
-Route::get('/scrape', 'ScrapeController@storeRadicals');
+
+
+// Route::get('/scrape', 'ScrapeController@getRadicals');
