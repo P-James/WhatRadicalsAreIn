@@ -7,6 +7,7 @@ use DOMElement;
 use DOMText;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Symfony\Component\DomCrawler\Crawler;
 
 class ScrapeController extends Controller
@@ -67,5 +68,32 @@ class ScrapeController extends Controller
             ]);
         }
         return 'success';
+    }
+
+    public function scrapeCharacters()
+    {
+        $radicals = Radical::all();
+
+        foreach ($radicals as $i => $radical) {
+            if ($radical->unicode() !== 'no_uri') {
+                $res = Http::asForm()->post(
+                    'https://www.archchinese.com/getSimpRadicalByUnicode',
+                    [
+                        'unicode' => $radical->unicode()
+                    ]
+                );
+                $characters = explode('@', $res->body());
+            }
+
+            foreach ($characters as $key => $info) {
+                if ($key % 4 === 4) {
+                    dd($info);
+                }
+            }
+        }
+
+
+
+        dd($data);
     }
 }

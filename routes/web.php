@@ -20,4 +20,4 @@ Route::get('/', function () {
 
 
 
-// Route::get('/scrape', 'ScrapeController@getRadicals');
+Route::get('/scrape', 'ScrapeController@scrapeCharacters');
