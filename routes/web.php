@@ -1,5 +1,6 @@
 <?php
 
+use App\Character;
 use App\Radical;
 use Illuminate\Support\Facades\Route;
 
@@ -17,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return Radical::all();
 });
-
-
-
-Route::get('/scrape', 'ScrapeController@scrapeCharacters');
+Route::get('/chars', function () {
+    return Character::all();
+});

@@ -25,7 +25,7 @@ class Radical extends Model
         $uri = $this->uri;
 
         $unicode = explode('=', $uri);
-        if (!$unicode[1]) {
+        if (count($unicode) === 1) {
             return 'no_uri';
         } else {
             return $unicode[1];

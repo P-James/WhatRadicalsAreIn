@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Character;
 use App\Radical;
 use DOMElement;
 use DOMText;
@@ -67,7 +68,7 @@ class ScrapeController extends Controller
                 'uri' => $model[6]
             ]);
         }
-        return 'success';
+        $this->scrapeCharacters();
     }
 
     public function scrapeCharacters()
@@ -83,17 +84,34 @@ class ScrapeController extends Controller
                     ]
                 );
                 $characters = explode('@', $res->body());
-            }
-
-            foreach ($characters as $key => $info) {
-                if ($key % 4 === 4) {
-                    dd($info);
+                // 0 = char, 1 = pinyin, 2 = english, 3 = stroke count
+                if (isset($characters)) {
+                    $char = '';
+                    $pinyin = '';
+                    $english = '';
+                    $strokeCount = 0;
+                    for ($i = 0; $i < count($characters); $i++) {
+                        if ($i % 4 === 0) {
+                            $char = explode('$', $characters[$i]);
+                            $char = end($char);
+                        } elseif ($i % 4 === 1) {
+                            $pinyin = $characters[$i];
+                        } elseif ($i % 4 === 2) {
+                            $english = $characters[$i];
+                        } elseif ($i % 4 === 3) {
+                            $strokeCount = $characters[$i];
+                            $character = Character::create([
+                                'character' => $char,
+                                'pinyin' => $pinyin,
+                                'meaning' => $english,
+                                'stroke_count' => $strokeCount
+                            ]);
+                            $character->radicals()->attach($character->id);
+                        }
+                    }
                 }
             }
         }
-
-
-
-        dd($data);
+        return redirect('/chars');
     }
 }
