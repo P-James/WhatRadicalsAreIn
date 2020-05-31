@@ -112,5 +112,14 @@ class ScrapeController extends Controller
                 }
             }
         }
+
+        $this->fix();
+    }
+
+    public function fix()
+    {
+        $c = Character::find(6074);
+        $c->update(['character' => '杴']);
+        $c->save();
     }
 }

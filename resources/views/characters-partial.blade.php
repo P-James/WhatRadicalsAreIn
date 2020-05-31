@@ -3,7 +3,8 @@
 <li>
     Character: {{$character->character}},
     Pinyin: {{$character->pinyin}},
-    English: {{$character->meaning}}
+    English: {{$character->meaning}},
+    {{$character->id}}
 </li>
 @endforeach
 @endisset

@@ -12,4 +12,10 @@ class Character extends Model
     {
         return $this->belongsToMany(Radical::class);
     }
+
+    public static function search($query)
+    {
+        return Character::where('meaning', 'like', '%' . $query . '%')
+            ->orWhere('character', $query);
+    }
 }

@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home', [
-        'characters' => Character::all()
-    ]);
+    return view('home');
 });
 Route::get('/chars', function () {
     return view('characters-partial', [

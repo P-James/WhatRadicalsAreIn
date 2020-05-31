@@ -13,8 +13,10 @@ class CharacterBlocks extends Component
     public function render()
     {
         return view('livewire.character-blocks', [
-            'characters' => Character::all()
-            // where('character', $this->search)->get()
+            'characters' => Character::where(
+                'character',
+                $this->search
+            )->get()
         ]);
     }
 }
