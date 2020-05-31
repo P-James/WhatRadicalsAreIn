@@ -13,7 +13,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class ScrapeController extends Controller
 {
-    public function getRadicals()
+    public static function startScrape()
     {
         $client = new Client();
         $res = $client->request('GET', 'https://www.archchinese.com/arch_chinese_radicals.html');
@@ -75,7 +75,7 @@ class ScrapeController extends Controller
     {
         $radicals = Radical::all();
 
-        foreach ($radicals as $i => $radical) {
+        foreach ($radicals as $radical) {
             if ($radical->unicode() !== 'no_uri') {
                 $res = Http::asForm()->post(
                     'https://www.archchinese.com/getSimpRadicalByUnicode',
@@ -106,12 +106,11 @@ class ScrapeController extends Controller
                                 'meaning' => $english,
                                 'stroke_count' => $strokeCount
                             ]);
-                            $character->radicals()->attach($character->id);
+                            $character->radicals()->attach($radical->id);
                         }
                     }
                 }
             }
         }
-        return redirect('/chars');
     }
 }

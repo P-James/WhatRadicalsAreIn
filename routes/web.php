@@ -16,8 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return Radical::all();
+    return view('home', [
+        'characters' => Character::all()
+    ]);
 });
 Route::get('/chars', function () {
-    return Character::all();
+    return view('characters-partial', [
+        'characters' => Character::search(
+            request('search')
+        )->get()
+    ]);
 });
