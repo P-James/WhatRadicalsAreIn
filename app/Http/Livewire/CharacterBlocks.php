@@ -21,7 +21,7 @@ class CharacterBlocks extends Component
     public function render()
     {
         return view('livewire.character-blocks', [
-            'characters' => Character::whereIn('character', $this->splitSearch)->get()
+            'characters' => Character::whereIn('character', mb_str_split($this->search))->get()
         ]);
     }
 }
