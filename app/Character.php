@@ -15,7 +15,9 @@ class Character extends Model
 
     public static function search($query)
     {
-        return Character::where('meaning', 'like', '%' . $query . '%')
-            ->orWhere('character', $query);
+        // return static::where('character', 'like', '%' . $query . '%');
+        return empty($query) ? static::query()
+            : static::where('character', 'like', '%' . $query . '%');
+        // ->orWhere('email', 'like', '%'.$query.'%');
     }
 }
