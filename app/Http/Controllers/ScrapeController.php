@@ -52,7 +52,7 @@ class ScrapeController extends Controller
             $i++;
         }
 
-        $this->storeRadicals($models);
+        static->storeRadicals($models);
     }
 
     private function storeRadicals($models)
