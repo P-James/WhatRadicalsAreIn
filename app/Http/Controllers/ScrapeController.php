@@ -13,7 +13,7 @@ use Symfony\Component\DomCrawler\Crawler;
 
 class ScrapeController extends Controller
 {
-    public static function startScrape()
+    public function startScrape()
     {
         $client = new Client();
         $res = $client->request('GET', 'https://www.archchinese.com/arch_chinese_radicals.html');
@@ -52,7 +52,7 @@ class ScrapeController extends Controller
             $i++;
         }
 
-        static->storeRadicals($models);
+        $this->storeRadicals($models);
     }
 
     private function storeRadicals($models)
