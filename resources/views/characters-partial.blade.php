@@ -2,10 +2,12 @@
 
 @foreach ($characters as $character)
 <character-block 
-    radical="{{$character->radicals()->first()->radical}}" 
     character="{{$character->character}}" 
-    pinyin="{{$character->pinyin}}" 
-    english="{{$character->meaning}}">
+    radical="{{$character->radicals()->first()->radical}}" 
+    stroke-count="{{$character->radicals()->first()->stroke_count}}"
+    radical-variants="{{$character->radicals()->first()->variants}}" 
+    pinyin="{{$character->radicals()->first()->pinyin}}" 
+    english="{{$character->radicals()->first()->english}}">
 </character-block>
 
 @endforeach

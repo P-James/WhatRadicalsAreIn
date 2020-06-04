@@ -1929,8 +1929,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["radical", "character", "pinyin", "english"]
+  props: ["character", "radical", "strokeCount", "variants", "pinyin", "english"]
 });
 
 /***/ }),
@@ -37495,27 +37506,45 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", [
-      _vm._v("\n    Radical:\n    "),
-      _c("span", [_vm._v(_vm._s(this.$props.radical))])
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _vm._v("\n    Character:\n    "),
-      _c("span", [_vm._v(_vm._s(this.$props.character))])
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _vm._v("\n    Pinyin:\n    "),
-      _c("span", [_vm._v(_vm._s(this.$props.pinyin))])
-    ]),
-    _vm._v(" "),
-    _c("div", [
-      _vm._v("\n    English:\n    "),
-      _c("span", [_vm._v(_vm._s(this.$props.english))])
-    ])
-  ])
+  return _c(
+    "div",
+    {
+      staticClass:
+        "bg-offWhite text-darkBlue w-1/4 md:w-48 border rounded-lg p-4 shadow-lg m-1 md:m-4"
+    },
+    [
+      _c("div", { staticClass: "flex justify-center text-lg" }, [
+        _c("span", [_vm._v(_vm._s(this.$props.character))])
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _vm._v("\n    Radical:\n    "),
+        _c("span", [_vm._v(_vm._s(this.$props.radical))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "hidden sm:block" }, [
+        _vm._v("\n    Stroke Count:\n    "),
+        _c("span", [_vm._v(_vm._s(this.$props.strokeCount))])
+      ]),
+      _vm._v(" "),
+      this.$props.variants
+        ? _c("div", { staticClass: "hidden sm:block" }, [
+            _vm._v("\n    Radical Variants:\n    "),
+            _c("span", [_vm._v(_vm._s(this.$props.radicalVariants))])
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _c("div", { staticClass: "hidden sm:block" }, [
+        _vm._v("\n    Pinyin:\n    "),
+        _c("span", [_vm._v(_vm._s(this.$props.pinyin))])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "break-words hidden sm:block" }, [
+        _vm._v("\n    English:\n    "),
+        _c("span", [_vm._v(_vm._s(this.$props.english))])
+      ])
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
