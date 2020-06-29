@@ -6342,7 +6342,7 @@ video {
 }
 
 .font-dengxian {
-  font-family: DengXian;
+  font-family: DengXian, Heiti;
 }
 
 .font-hairline {
@@ -25672,7 +25672,7 @@ video {
   }
 
   .sm\:font-dengxian {
-    font-family: DengXian;
+    font-family: DengXian, Heiti;
   }
 
   .sm\:font-hairline {
@@ -45003,7 +45003,7 @@ video {
   }
 
   .md\:font-dengxian {
-    font-family: DengXian;
+    font-family: DengXian, Heiti;
   }
 
   .md\:font-hairline {
@@ -64334,7 +64334,7 @@ video {
   }
 
   .lg\:font-dengxian {
-    font-family: DengXian;
+    font-family: DengXian, Heiti;
   }
 
   .lg\:font-hairline {
@@ -83665,7 +83665,7 @@ video {
   }
 
   .xl\:font-dengxian {
-    font-family: DengXian;
+    font-family: DengXian, Heiti;
   }
 
   .xl\:font-hairline {

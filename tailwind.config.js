@@ -3,7 +3,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                dengxian: ["DengXian"]
+                dengxian: ["DengXian", "Heiti"]
             },
             colors: {
                 steelTeal: "#62929e",

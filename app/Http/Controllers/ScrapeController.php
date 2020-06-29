@@ -33,7 +33,7 @@ class ScrapeController extends Controller
         foreach ($tableRows as $row) {
             $j = 0;
             foreach ($row as $td) {
-                $data = new Crawler($td);
+                $data = new Crawler($td); 
                 if ($i > 1) {
                     $models[$i][$j] = $data->text();
                     if ($j === 1) {
@@ -121,5 +121,13 @@ class ScrapeController extends Controller
         $c = Character::find(6074);
         $c->update(['character' => '杴']);
         $c->save();
+    }
+
+    public function getComponents()
+    {
+        $characters = Character::all();
+        foreach ($characters as $character) {
+            dd(file_get_contents('https://www.archchinese.com/chinese_english_dictionary.html?find=%E4%BD%A0'));
+        }
     }
 }

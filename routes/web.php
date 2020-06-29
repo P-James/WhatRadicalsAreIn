@@ -25,3 +25,5 @@ Route::get('/chars', function () {
         )->get()
     ]);
 });
+
+Route::get('/comps', 'ComponentScrapeController@start');
